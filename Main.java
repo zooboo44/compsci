@@ -31,7 +31,7 @@ public class Main {
                 int ID;
                 double price;
                 boolean in_stock;
-                boolean food;
+                boolean food; 
                 String isFood;
                 System.out.println("Entering Food Item");
                 System.out.println("Please enter the Item's NAME (string), ID(integer), PRICE(double), STOCK AVAILABILITY(boolean)");
@@ -39,19 +39,23 @@ public class Main {
                 ID = scan.nextInt();
                 price = scan.nextDouble();
                 in_stock = scan.nextBoolean();
-                System.out.println("Is the item a food yes/no: ");
-                isFood = scan.next().toLowerCase();
-                if(isFood.equals("yes")){
-                    food = true;
-                }
-                else{
-                    food = false;
-                }
-                if(food == true){
-                    Inventory.addFood(name, ID, price, in_stock, food);
-                }
-                else{
-                    Inventory.addNonFood(name, ID, price, in_stock, food);
+                boolean loop = true;
+                while (loop == true){
+                    System.out.println("Is the item a food yes/no: ");
+                    isFood = scan.next().toLowerCase();
+                    if(isFood.equals("yes")){
+                        food = true;
+                        Inventory.addFood(name, ID, price, in_stock, food);
+                        loop = false;
+                    }
+                    else if(isFood.equals("no")){
+                        food = false;
+                        Inventory.addNonFood(name, ID, price, in_stock, food);
+                        loop = false;
+                    }
+                    else{
+                        System.out.println("Answer yes or no");
+                    }
                 }
             }
             //Removes Item from arraylist
@@ -73,7 +77,6 @@ public class Main {
             }
             //Clears Inventory List
             else if (select == 5) {
-            
                 System.out.println("Are you sure you want to clear inventory? This action cannot be undone");
                 System.out.println("Type YES to confirm");
                 String ExitUserin;
