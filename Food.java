@@ -11,4 +11,7 @@ public class Food extends Items {
     public boolean getIsFood(){
         return is_food; 
     }
+    public String toString(){
+        return super.toString() + " Is food: " + this.is_food;
+    }
 }

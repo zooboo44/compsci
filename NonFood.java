@@ -13,4 +13,8 @@ public class NonFood extends Items {
         return is_food; 
     }
 
+    public String toString(){
+        return super.toString() + " Is food: " + this.is_food;
+    }
+
 }

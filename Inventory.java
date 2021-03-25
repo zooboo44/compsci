@@ -67,13 +67,5 @@ public class Inventory{
         NonFood newNonFood = new NonFood(name, ID, price, in_stock, food);
         inven.set(n, newNonFood);
     }
-
-    public String toString() {
-        String results = "+";
-        for(Items obj: inven) {
-            System.out.println(obj + " ");
-        }
-        return results;
-      }
     
 }
