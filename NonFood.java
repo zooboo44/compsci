@@ -14,7 +14,7 @@ public class NonFood extends Items {
     }
 
     public String toString(){
-        return super.toString() + " Is food: " + this.is_food;
+        return super.toString() + " Is food:" + this.is_food;
     }
 
 }

@@ -67,5 +67,14 @@ public class Inventory{
         NonFood newNonFood = new NonFood(name, ID, price, in_stock, food);
         inven.set(n, newNonFood);
     }
+    public static void replaceNewFoodInven(int n, String name, int ID, double price, boolean in_stock, boolean food){
+        name = name;
+        ID = ID;
+        price = price;
+        in_stock = in_stock;
+        food = food;
+        NonFood newNonFood = new NonFood(name, ID, price, in_stock, food);
+        inven.set(n, newNonFood);
+    }
     
 }

@@ -30,7 +30,7 @@ public abstract class Items {
     }
 
     public String toString(){
-        return "Name: " + this.item_name + " ID: " + this.item_ID + " Price: "+ this.item_price + " In Stock: "+ this.in_stock;
+        return "Name:" + this.item_name + " ID:" + this.item_ID + " Price:"+ this.item_price + " In Stock:"+ this.in_stock;
     }
     
     public abstract boolean getIsFood();
