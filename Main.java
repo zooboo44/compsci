@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         //Scanner
         Scanner scan = new Scanner (System.in);
-        
+
         //Break condition
         boolean run = true;
         
@@ -29,11 +29,12 @@ public class Main {
             //Adds food items to array list
             else if (select == 2) {
                 System.out.println("\nEntering Food Item");
-                System.out.println("Please enter the Item's NAME (string), ID(integer), PRICE(double), STOCK AVAILABILITY(boolean)");
+                System.out.println("Please enter the Item's NAME (string), ID(integer), PRICE(double), STOCK AVAILABILITY(boolean), Quantity(integer)");
                 String name = scan.next();
                 int ID = scan.nextInt();
                 double price = scan.nextDouble();
                 boolean in_stock = scan.nextBoolean();
+                int quant = scan.nextInt();
                 String isFood;
                 boolean food;
                 boolean loop = true;
@@ -42,13 +43,13 @@ public class Main {
                     isFood = scan.next().toLowerCase();
                     if(isFood.equals("yes")){
                         food = true;
-                        Inventory.addFood(name, ID, price, in_stock, food);
+                        Inventory.addFood(name, ID, price, in_stock, quant, food);
                         System.out.println();
                         loop = false;
                     }
                     else if(isFood.equals("no")){
                         food = false;
-                        Inventory.addNonFood(name, ID, price, in_stock, food);
+                        Inventory.addNonFood(name, ID, price, in_stock, quant, food);
                         System.out.println();
                         loop = false;
                     }
@@ -73,11 +74,12 @@ public class Main {
                 System.out.println("\nWhat Item do you want to replace: ");
                 Inventory.printInven();
                 replaceInt = scan.nextInt() - 1;
-                System.out.println("Please enter the Item's NAME (string), ID(integer), PRICE(double), STOCK AVAILABILITY(boolean)");
+                System.out.println("Please enter the Item's NAME (string), ID(integer), PRICE(double), STOCK AVAILABILITY(boolean), Quantity(integer)");
                 String name = scan.next();
                 int ID = scan.nextInt();
                 double price = scan.nextDouble();
                 boolean in_stock = scan.nextBoolean();
+                int quant = scan.nextInt();
                 String isFood;
                 boolean food;
                 boolean loop = true;
@@ -86,13 +88,13 @@ public class Main {
                     isFood = scan.next().toLowerCase();
                     if(isFood.equals("yes")){
                         food = true;
-                        Inventory.replaceNewFoodInven(replaceInt, name, ID, price, in_stock, food);
+                        Inventory.replaceNewFoodInven(replaceInt, name, ID, price, in_stock, quant, food);
                         System.out.println();
                         loop = false;
                     }
                     else if(isFood.equals("no")){
                         food = false;
-                        Inventory.replaceNewNonFoodInven(replaceInt, name, ID, price, in_stock, food);
+                        Inventory.replaceNewNonFoodInven(replaceInt, name, ID, price, in_stock, quant, food);
                         System.out.println();
                         loop = false;
                     }
