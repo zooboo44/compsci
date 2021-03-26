@@ -45,17 +45,19 @@ public class Inventory{
         totalQuantity += Items.getQuant();
     }
 
-    //Delete inventory
+    //Remove item from inventory
     public static void delInven(int num){
-        inven.remove(num);
+        inven.get(num);
         totalPrice -= Items.getItemPrice();
         totalQuantity -= Items.getQuant();
+        inven.remove(num);
     }
 
     //Print Inventory
     public static void printInven(){
         for(int i = 0; i < inven.size(); i++){
-            System.out.println(i+1 + " " + inven.get(i).toString());
+            inven.get(i);
+            System.out.println(i+1 + " " + inven.get(i));
         }
         System.out.println("Total quantity is:" + totalQuantity);
         System.out.println("Total price is:" + totalPrice);
@@ -65,6 +67,8 @@ public class Inventory{
     //Clear Inventory
     public static void clearInven(){
         inven.clear();
+        totalPrice = 0;
+        totalQuantity = 0;
     }
 
     //Replace item
@@ -77,7 +81,11 @@ public class Inventory{
         food = food;
         quant = quant;
         NonFood newNonFood = new NonFood(name, ID, price, in_stock, quant, food);
+        inven.get(n);
+        totalPrice -= Items.getItemPrice();
+        totalQuantity -= Items.getQuant();
         inven.set(n, newNonFood);
+        inven.get(n);
         totalPrice += Items.getItemPrice();
         totalQuantity += Items.getQuant();
     }
@@ -88,7 +96,11 @@ public class Inventory{
         in_stock = in_stock;
         food = food;
         NonFood newNonFood = new NonFood(name, ID, price, in_stock, quant, food);
+        inven.get(n);
+        totalPrice -= Items.getItemPrice();
+        totalQuantity -= Items.getQuant();
         inven.set(n, newNonFood);
+        inven.get(n);
         totalPrice += Items.getItemPrice();
         totalQuantity += Items.getQuant();
     }

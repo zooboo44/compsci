@@ -30,16 +30,21 @@ public class Main {
             else if (select == 2) {
                 System.out.println("\nEntering Food Item");
                 System.out.println("Please enter the Item's NAME (string), ID(integer), PRICE(double), STOCK AVAILABILITY(boolean), Quantity(integer)");
+                System.out.print("Name:");
                 String name = scan.next();
+                System.out.print("ID:");
                 int ID = scan.nextInt();
+                System.out.print("Price:");
                 double price = scan.nextDouble();
+                System.out.print("In stock (true/false)");
                 boolean in_stock = scan.nextBoolean();
+                System.out.print("Quantity:");
                 int quant = scan.nextInt();
                 String isFood;
                 boolean food;
                 boolean loop = true;
                 while (loop == true){
-                    System.out.println("Is the item a food yes/no: ");
+                    System.out.print("Is the item a food yes/no: ");
                     isFood = scan.next().toLowerCase();
                     if(isFood.equals("yes")){
                         food = true;
@@ -75,10 +80,15 @@ public class Main {
                 Inventory.printInven();
                 replaceInt = scan.nextInt() - 1;
                 System.out.println("Please enter the Item's NAME (string), ID(integer), PRICE(double), STOCK AVAILABILITY(boolean), Quantity(integer)");
+                System.out.print("Name:");
                 String name = scan.next();
+                System.out.print("ID:");
                 int ID = scan.nextInt();
+                System.out.print("Price:");
                 double price = scan.nextDouble();
+                System.out.print("In stock (true/false):");
                 boolean in_stock = scan.nextBoolean();
+                System.out.print("Quantity:");
                 int quant = scan.nextInt();
                 String isFood;
                 boolean food;
