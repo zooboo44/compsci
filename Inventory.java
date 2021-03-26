@@ -55,12 +55,12 @@ public class Inventory{
 
     //Print Inventory
     public static void printInven(){
+        
         for(int i = 0; i < inven.size(); i++){
-            inven.get(i);
             System.out.println(i+1 + " " + inven.get(i));
         }
-        System.out.println("Total quantity is:" + totalQuantity);
-        System.out.println("Total price is:" + totalPrice);
+        System.out.println("Total quantity:" + totalQuantity);
+        System.out.println("Total price:" + totalPrice);
     }
     
 
@@ -81,13 +81,7 @@ public class Inventory{
         food = food;
         quant = quant;
         NonFood newNonFood = new NonFood(name, ID, price, in_stock, quant, food);
-        inven.get(n);
-        totalPrice -= Items.getItemPrice();
-        totalQuantity -= Items.getQuant();
         inven.set(n, newNonFood);
-        inven.get(n);
-        totalPrice += Items.getItemPrice();
-        totalQuantity += Items.getQuant();
     }
     public static void replaceNewFoodInven(int n, String name, int ID, double price, boolean in_stock, int quant, boolean food){
         name = name;
@@ -96,13 +90,7 @@ public class Inventory{
         in_stock = in_stock;
         food = food;
         NonFood newNonFood = new NonFood(name, ID, price, in_stock, quant, food);
-        inven.get(n);
-        totalPrice -= Items.getItemPrice();
-        totalQuantity -= Items.getQuant();
         inven.set(n, newNonFood);
-        inven.get(n);
-        totalPrice += Items.getItemPrice();
-        totalQuantity += Items.getQuant();
     }
     
 }
