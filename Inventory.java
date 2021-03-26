@@ -45,6 +45,7 @@ public class Inventory{
 
     //Print Inventory
     public static void printInven(){
+        
         for(int i = 0; i < inven.size(); i++){
             System.out.println(i+1 + " " + inven.get(i).toString());
         }
