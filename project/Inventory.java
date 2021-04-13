@@ -1,56 +1,32 @@
 package project;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Inventory{
-    public static ArrayList<Items> inven = new ArrayList<Items>();
-    Scanner scan = new Scanner (System.in);
-    private String name;
-    private int ID;
-    private double price;
-    private boolean in_stock;
-    private boolean food;
-    private int quant;
+    public static ArrayList<Items> inven = new ArrayList<>();
     private static double totalPrice;
     private static int totalQuantity;
-    public static void main(String[] args) {
-    
-    }
 
     //Add Food Item
     public static void addFood(String name, int ID, double price, boolean in_stock, int quant, boolean food){
-        name = name;
-        ID = ID;
-        price = price;
-        in_stock = in_stock;
-        food = food;
-        quant = quant;
         Food newFood = new Food(name, ID, price, in_stock, quant, food);
         inven.add(newFood);
-        totalPrice += Items.getItemPrice();
-        totalQuantity += Items.getQuant();
+        totalPrice += newFood.getItemPrice();
+        totalQuantity += newFood.getQuant();
     }
 
     //Add Non food item
     public static void addNonFood(String name, int ID, double price, boolean in_stock, int quant, boolean food){
-        name = name;
-        ID = ID;
-        price = price;
-        in_stock = in_stock;
-        food = food;
-        quant = quant;
         NonFood newNonFood = new NonFood(name, ID, price, in_stock, quant, food);
         inven.add(newNonFood);
-        totalPrice += Items.getItemPrice();
-        totalQuantity += Items.getQuant();
+        totalPrice += newNonFood.getItemPrice();
+        totalQuantity += newNonFood.getQuant();
     }
 
     //Remove item from inventory
     public static void delInven(int num){
-        inven.get(num);
-        totalPrice -= Items.getItemPrice();
-        totalQuantity -= Items.getQuant();
-        inven.remove(num);
+        Items item = inven.remove(num);
+        totalPrice -= item.getItemPrice();
+        totalQuantity -= item.getQuant();
     }
 
     //Print Inventory
@@ -60,7 +36,7 @@ public class Inventory{
             System.out.println(i+1 + " " + inven.get(i));
         }
         System.out.println("Total quantity:" + totalQuantity);
-        System.out.println("Total price:" + totalPrice);
+        System.out.println("Total price:" + Math.round(totalPrice*100)/100);
     }
     
 
@@ -74,23 +50,12 @@ public class Inventory{
     //Replace item
     //Polymorphism for food and non food items
     public static void replaceNewNonFoodInven(int n, String name, int ID, double price, boolean in_stock, int quant, boolean food){
-        name = name;
-        ID = ID;
-        price = price;
-        in_stock = in_stock;
-        food = food;
-        quant = quant;
         NonFood newNonFood = new NonFood(name, ID, price, in_stock, quant, food);
         inven.set(n, newNonFood);
     }
     public static void replaceNewFoodInven(int n, String name, int ID, double price, boolean in_stock, int quant, boolean food){
-        name = name;
-        ID = ID;
-        price = price;
-        in_stock = in_stock;
-        food = food;
-        NonFood newNonFood = new NonFood(name, ID, price, in_stock, quant, food);
-        inven.set(n, newNonFood);
+        Food newFood = new Food(name, ID, price, in_stock, quant, food);
+        inven.set(n, newFood);
     }
     
 }

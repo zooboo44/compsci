@@ -1,4 +1,5 @@
 package project;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
@@ -18,8 +19,16 @@ public class Main {
             System.out.println("4. Replace Element");
             System.out.println("5. Clear Inventory List");
             System.out.println("0. Exit Program");
-            int select = scan.nextInt();
-            
+            int select = -1;
+            while (select < 1 || select > 5) {
+                try {
+                  select = scan.nextInt();
+                } catch (InputMismatchException e) {
+                  System.out.println("Invalid input. Please enter an integer value.");
+                  scan.next();
+                }
+            }
+
             //Prints Inventory
             if(select == 1){
                 System.out.println("\nPrinting Inventory:");

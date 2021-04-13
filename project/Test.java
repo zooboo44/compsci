@@ -8,7 +8,7 @@ public class Test {
     double price = 21.0;
     boolean in_stock = true;
     boolean food = true;
-    Inventory.addFood(name, ID, price, in_stock, food);
+    Inventory.addFood(name, ID, price, in_stock, 0, food);
     Inventory.printInven();
     
     
