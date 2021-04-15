@@ -1,18 +1,16 @@
 package project;
 
 public class NonFood extends Items {
-
-    private boolean is_food;
-    public NonFood(String name, int ID, double price, boolean in_stock, int quant, boolean food){
+    public NonFood(String name, int ID, double price, boolean in_stock, int quant){
         super(name, ID, price, in_stock, quant);
-        this.is_food = food;
     }
 
     public boolean getIsFood(){
-        return is_food; 
+        return false;
     }
+
     public String toString(){
-        return super.toString() + " Is food:" + this.is_food;
+        return super.toString() + " Is food:" + this.getIsFood();
     }
 
 }

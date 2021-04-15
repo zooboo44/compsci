@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Inventory inven = new Inventory();
+        ReplaceableInventory replaceableInventory = new ReplaceableInventory(inven);
 
         //Scanner
         Scanner scan = new Scanner (System.in);
@@ -56,7 +57,7 @@ public class Main {
                 System.out.println("\nWhat Item do you want to replace: ");
                 inven.printInven();
                 replaceInt = scan.nextInt() - 1;
-                replaceInputPrompt(inven, replaceInt);
+                replaceInputPrompt(replaceableInventory, replaceInt);
             }
             //Clears Inventory List
             else if (select == 5) {
@@ -159,13 +160,13 @@ public class Main {
                     isFood = scan.next().toLowerCase();
                     if(isFood.equals("yes")){
                         food = true;
-                        inven.addFood(name, ID, price, in_stock, quant, food);
+                        inven.addFood(name, ID, price, in_stock, quant);
                         System.out.println();
                         loop = false;
                     }
                     else if(isFood.equals("no")){
                         food = false;
-                        inven.addNonFood(name, ID, price, in_stock, quant, food);
+                        inven.addNonFood(name, ID, price, in_stock, quant);
                         System.out.println();
                         loop = false;
                     }
@@ -175,7 +176,7 @@ public class Main {
                 }
     }
 
-    public static void replaceInputPrompt(Inventory inven, int n){
+    public static void replaceInputPrompt(ReplaceableInventory inven, int n){
         int replaceInt = n;
         Scanner scan = new Scanner (System.in);
         System.out.println("\nEntering Food Item");
@@ -248,14 +249,12 @@ public class Main {
                     System.out.print("Is the item a food yes/no: ");
                     isFood = scan.next().toLowerCase();
                     if(isFood.equals("yes")){
-                        food = true;
-                        inven.replaceNewFoodInven(replaceInt, name, ID, price, in_stock, quant, food);
+                        inven.replaceItem(replaceInt, name, ID, price, in_stock, quant);
                         System.out.println();
                         loop = false;
                     }
                     else if(isFood.equals("no")){
-                        food = false;
-                        inven.replaceNewNonFoodInven(replaceInt, name, ID, price, in_stock, quant, food);
+                        inven.replaceItem(replaceInt, name, ID, price, in_stock, quant);
                         System.out.println();
                         loop = false;
                     }
