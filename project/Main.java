@@ -3,15 +3,13 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
+        //Instantiate Inventory class
         Inventory inven = new Inventory();
         ReplaceableInventory replaceableInventory = new ReplaceableInventory(inven);
-
         //Scanner
         Scanner scan = new Scanner (System.in);
-
         //Break condition
         boolean run = true;
-        
         //Break statement start
         while(run == true){
             System.out.println("Hello Welcome to the inventory");
@@ -23,6 +21,7 @@ public class Main {
             System.out.println("5. Clear Inventory List");
             System.out.println("0. Exit Program");
             int select = -1;
+            //Ensures that only numbers 0-5 can be entered and prevents a Mismatch Exception
             while (select < 0 || select > 5) {
                 try {
                   select = scan.nextInt();
@@ -31,7 +30,6 @@ public class Main {
                   scan.next();
                 }
             }
-
             //Prints Inventory
             if(select == 1){
                 System.out.println("\nPrinting Inventory:");
@@ -44,7 +42,7 @@ public class Main {
             }
             //Removes Item from arraylist
             else if (select ==3) {
-                System.out.println("\nWhat item do you want to remove?");
+                System.out.println("\nWhat item do you want to delete?");
                 inven.printInven();
                 int RemUserin;
                 RemUserin = scan.nextInt() - 1;
@@ -76,7 +74,6 @@ public class Main {
             }
             //Exits Program
             else if (select == 0) {
-            
                 String exitProgram;
                 System.out.println("\nPlease type 'EXIT' to exit program otherwise press enter");
                 exitProgram = scan.next();
@@ -86,7 +83,7 @@ public class Main {
             }
         }
     }
-
+    //Method that adds an item to the inventory
     public static void userInputPrompt(Inventory inven){
         Scanner scan = new Scanner (System.in);
         System.out.println("\nEntering Food Item");
@@ -175,7 +172,7 @@ public class Main {
                     }
                 }
     }
-
+    //Method that replaces an item
     public static void replaceInputPrompt(ReplaceableInventory inven, int n){
         int replaceInt = n;
         Scanner scan = new Scanner (System.in);
