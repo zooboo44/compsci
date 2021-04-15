@@ -1,7 +1,7 @@
 package project;
-interface Admin {
-    public void addInven();
+interface Admin extends User{
+    public void addFood();
+    public void addNonFood();
     public void delInven();
-    public void replaceInven();
     public void clearInven();
 }
