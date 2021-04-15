@@ -3,6 +3,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
+        Inventory inven = new Inventory();
+
         //Scanner
         Scanner scan = new Scanner (System.in);
 
@@ -32,29 +34,29 @@ public class Main {
             //Prints Inventory
             if(select == 1){
                 System.out.println("\nPrinting Inventory:");
-                Inventory.printInven();
+                inven.printInven();
                 System.out.println("\n");
             }
             //Adds food items to array list
             else if (select == 2) {
-                userInputPrompt();
+                userInputPrompt(inven);
             }
             //Removes Item from arraylist
             else if (select ==3) {
                 System.out.println("\nWhat item do you want to remove?");
-                Inventory.printInven();
+                inven.printInven();
                 int RemUserin;
                 RemUserin = scan.nextInt() - 1;
-                Inventory.delInven(RemUserin);
+                inven.delInven(RemUserin);
                 System.out.println();
             }
             //Replaces Item
             else if (select == 4) {
                 int replaceInt;
                 System.out.println("\nWhat Item do you want to replace: ");
-                Inventory.printInven();
+                inven.printInven();
                 replaceInt = scan.nextInt() - 1;
-                replaceInputPrompt(replaceInt);                
+                replaceInputPrompt(inven, replaceInt);
             }
             //Clears Inventory List
             else if (select == 5) {
@@ -63,7 +65,7 @@ public class Main {
                 String ExitUserin;
                 ExitUserin = scan.next();
                 if (ExitUserin.equals("YES")){
-                    Inventory.clearInven();
+                    inven.clearInven();
                     System.out.println();
                 }
                 else{
@@ -84,7 +86,7 @@ public class Main {
         }
     }
 
-    public static void userInputPrompt(){
+    public static void userInputPrompt(Inventory inven){
         Scanner scan = new Scanner (System.in);
         System.out.println("\nEntering Food Item");
                 System.out.println("Please enter the Item's NAME (string), ID(integer), PRICE(double), STOCK AVAILABILITY(boolean), Quantity(integer)");
@@ -157,13 +159,13 @@ public class Main {
                     isFood = scan.next().toLowerCase();
                     if(isFood.equals("yes")){
                         food = true;
-                        Inventory.addFood(name, ID, price, in_stock, quant, food);
+                        inven.addFood(name, ID, price, in_stock, quant, food);
                         System.out.println();
                         loop = false;
                     }
                     else if(isFood.equals("no")){
                         food = false;
-                        Inventory.addNonFood(name, ID, price, in_stock, quant, food);
+                        inven.addNonFood(name, ID, price, in_stock, quant, food);
                         System.out.println();
                         loop = false;
                     }
@@ -173,7 +175,7 @@ public class Main {
                 }
     }
 
-    public static void replaceInputPrompt(int n){
+    public static void replaceInputPrompt(Inventory inven, int n){
         int replaceInt = n;
         Scanner scan = new Scanner (System.in);
         System.out.println("\nEntering Food Item");
@@ -247,13 +249,13 @@ public class Main {
                     isFood = scan.next().toLowerCase();
                     if(isFood.equals("yes")){
                         food = true;
-                        Inventory.replaceNewFoodInven(replaceInt, name, ID, price, in_stock, quant, food);
+                        inven.replaceNewFoodInven(replaceInt, name, ID, price, in_stock, quant, food);
                         System.out.println();
                         loop = false;
                     }
                     else if(isFood.equals("no")){
                         food = false;
-                        Inventory.replaceNewNonFoodInven(replaceInt, name, ID, price, in_stock, quant, food);
+                        inven.replaceNewNonFoodInven(replaceInt, name, ID, price, in_stock, quant, food);
                         System.out.println();
                         loop = false;
                     }

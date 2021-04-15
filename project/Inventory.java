@@ -1,13 +1,13 @@
 package project;
 import java.util.ArrayList;
 
-public class Inventory{
-    public static ArrayList<Items> inven = new ArrayList<>();
-    private static double totalPrice;
-    private static int totalQuantity;
+public class Inventory implements Admin {
+    public ArrayList<Items> inven = new ArrayList<>();
+    private double totalPrice;
+    private int totalQuantity;
 
     //Add Food Item
-    public static void addFood(String name, int ID, double price, boolean in_stock, int quant, boolean food){
+    public void addFood(String name, int ID, double price, boolean in_stock, int quant, boolean food){
         Food newFood = new Food(name, ID, price, in_stock, quant, food);
         inven.add(newFood);
         totalPrice += newFood.getItemPrice();
@@ -15,7 +15,7 @@ public class Inventory{
     }
 
     //Add Non food item
-    public static void addNonFood(String name, int ID, double price, boolean in_stock, int quant, boolean food){
+    public void addNonFood(String name, int ID, double price, boolean in_stock, int quant, boolean food){
         NonFood newNonFood = new NonFood(name, ID, price, in_stock, quant, food);
         inven.add(newNonFood);
         totalPrice += newNonFood.getItemPrice();
@@ -23,24 +23,38 @@ public class Inventory{
     }
 
     //Remove item from inventory
-    public static void delInven(int num){
+    public void delInven(int num){
         Items item = inven.remove(num);
         totalPrice -= item.getItemPrice();
         totalQuantity -= item.getQuant();
     }
 
     //Print Inventory
-    public static void printInven(){
-        for(ArrayList number: inven){
+    public void printInven(){
+        for(Items number: inven){
             System.out.println(number);
         }
         System.out.println("Total quantity:" + totalQuantity);
         System.out.println("Total price:" + Math.round(totalPrice*100)/100);
     }
-    
+
+    @Override
+    public void addFood() {
+        // TODO: implement
+    }
+
+    @Override
+    public void addNonFood() {
+        // TODO: implement
+    }
+
+    @Override
+    public void delInven() {
+        // TODO: implement
+    }
 
     //Clear Inventory
-    public static void clearInven(){
+    public void clearInven(){
         inven.clear();
         totalPrice = 0;
         totalQuantity = 0;
@@ -48,11 +62,11 @@ public class Inventory{
 
     //Replace item
     //Polymorphism for food and non food items
-    public static void replaceNewNonFoodInven(int n, String name, int ID, double price, boolean in_stock, int quant, boolean food){
+    public void replaceNewNonFoodInven(int n, String name, int ID, double price, boolean in_stock, int quant, boolean food){
         NonFood newNonFood = new NonFood(name, ID, price, in_stock, quant, food);
         inven.set(n, newNonFood);
     }
-    public static void replaceNewFoodInven(int n, String name, int ID, double price, boolean in_stock, int quant, boolean food){
+    public void replaceNewFoodInven(int n, String name, int ID, double price, boolean in_stock, int quant, boolean food){
         Food newFood = new Food(name, ID, price, in_stock, quant, food);
         inven.set(n, newFood);
     }
