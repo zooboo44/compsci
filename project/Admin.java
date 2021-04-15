@@ -4,4 +4,5 @@ interface Admin extends User{
     public void addNonFood();
     public void delInven();
     public void clearInven();
+    public void printInven();
 }

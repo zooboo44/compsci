@@ -1,4 +1,6 @@
 package project;
 public interface User {
-    public void printInven();
+    public static void printInven(){
+        
+    }
 }

@@ -1,13 +1,12 @@
 package project;
 import java.util.ArrayList;
 
-public class Inventory implements Admin{
+public class Inventory{
     public static ArrayList<Items> inven = new ArrayList<>();
     private static double totalPrice;
     private static int totalQuantity;
 
     //Add Food Item
-    @Override
     public static void addFood(String name, int ID, double price, boolean in_stock, int quant, boolean food){
         Food newFood = new Food(name, ID, price, in_stock, quant, food);
         inven.add(newFood);
@@ -16,7 +15,6 @@ public class Inventory implements Admin{
     }
 
     //Add Non food item
-    @Override
     public static void addNonFood(String name, int ID, double price, boolean in_stock, int quant, boolean food){
         NonFood newNonFood = new NonFood(name, ID, price, in_stock, quant, food);
         inven.add(newNonFood);
@@ -32,10 +30,9 @@ public class Inventory implements Admin{
     }
 
     //Print Inventory
-    @Override
     public static void printInven(){
-        for(int i = 0; i < inven.size(); i++){
-            System.out.println(i+1 + " " + inven.get(i));
+        for(ArrayList number: inven){
+            System.out.println(number);
         }
         System.out.println("Total quantity:" + totalQuantity);
         System.out.println("Total price:" + Math.round(totalPrice*100)/100);
